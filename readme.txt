@@ -1,0 +1,1 @@
+This folder contains notes and scripts from LL lessons Faster_pandas, which deals with code optimization to reduce time and time complexity.
