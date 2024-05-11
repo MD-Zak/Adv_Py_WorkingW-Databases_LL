@@ -1,0 +1,1 @@
+This folder creates an FASTAPI web app, POSTed with POSTMAN, that accesses an MYSQL db to retrieve and store Books info.
