@@ -1,0 +1,44 @@
+<html>
+    <body>
+        <!-- <h2> Project {{project_id}}'s tasks. </h2> -->
+        <h2> {{tasks_page_proj.title}} project's tasks: </h2>
+        <ul>
+            <br>
+            {% for tasks in to_tasks_page %}                
+                <!-- <input name = "checkbox" type ="checkbox" id = "checks">
+                <label for = "checks"><b>{{tasks.description}}</b></label>
+                <br> -->
+                <li><b>{{tasks.description}}</b></li>
+                <!-- <form action = "/removes_tasks/{{tasks.task_id}}" method = "POST"> -->
+                <form action = "/completes_tasks/{{tasks.description}}" method = "POST">
+                    <input type = "submit" value = "Task completed">
+                </form>
+            {% endfor %}
+        </ul>
+        <br>
+        <h3>Add a Task:</h3>
+        <form action="/add/tasks/{{tasks_page_proj.project_id}}" method="POST">
+            Task: <input type="text" name="Task-name">
+            <br>
+            <br>
+            <input type="submit" value="Add task">
+        </form>
+        <br>
+        <h3>Remove a Completed Project:</h3>
+        <form action="/removes_projects/{{tasks_page_proj.project_id}}" method="POST">
+            <input type="submit" value="Remove project">
+        </form>
+        <br>
+        <br>
+        {%- for category, message in get_flashed_messages(with_categories = True) %}
+        <div style = "color: {{category}}"><h3>Alert: {{message}}</h3></div> <!--check if mesSAge would work; it looks like html is case sensitive.-->
+         {%- endfor %}
+
+         <!-- <p class = "strikethrough">Paragraph 1</p>
+         <p>Paragraph 2</p>
+         <p class = "strikethrough">Paragraph 3</p> -->
+    </body>
+</html>
+
+
+ 
